@@ -1,7 +1,15 @@
 <template>
-    <div id = "app" > 
-        {{ message }} 
-    </div> 
+    <div>
+        <div id = "app" > 
+            {{ message }} 
+        </div> 
+
+        <!-- 计算属性 -->
+        <div id="eg">
+            <p>Original message:"{{message}}"</p>
+            <p>Computed reversed message:"{{reversedMessage}}"</p>
+        </div>
+    </div>
 </template>
 
 <script >
@@ -11,4 +19,15 @@
             message: 'Hello Vue！'
         }
     }) 
+    var vm=new Vue({
+        el:"eg",
+        data:{
+         message:'Hello'
+        },
+    computed:{
+        reversedMessage:function(){
+            return this.message.split('').reverse().join('')
+        }
+    }
+    })
 </script>
